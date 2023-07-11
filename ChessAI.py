@@ -2,7 +2,7 @@
 Handling the AI moves.
 """
 import random
-
+import pygame
 piece_score = {"K": 0, "Q": 9, "R": 5, "B": 3, "N": 3, "p": 1}
 knight_scores = [[0.2 ,0.3 ,0.4 ,0.4 ,0.4 ,0.4 ,0.3 ,0.2],
                  [0.3, 0.4 ,0.6 ,0.6 ,0.6 ,0.6 ,0.4 ,0.3],
@@ -118,7 +118,7 @@ def scoreBoard(game_state):
                     piece_position_score = piece_position_scores[piece][row][col]
                 if piece[0] == "w":
                     score += piece_score[piece[1]] + piece_position_score
-                if piece[0] == "b":
+                elif piece[0] == "b":
                     score -= piece_score[piece[1]] + piece_position_score
 
     return score
